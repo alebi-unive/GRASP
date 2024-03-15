@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  python:
+    container_name: grasp
+    image: ripper346/grasp:cuda
+    volumes:
+      - .:/src
+    working_dir: /src
+    environment:
+      - TZ=UTC
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ "0" ]
+              capabilities: [ gpu ]
