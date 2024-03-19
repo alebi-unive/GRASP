@@ -28,7 +28,8 @@ ARG TORCH_GEO_URL
 RUN /opt/conda/envs/py/bin/pip3 install --no-cache-dir $TORCH+cpu --extra-index-url https://download.pytorch.org/whl/cpu && \
     /opt/conda/envs/py/bin/pip3 install --no-cache-dir $TORCH_GEO -f $TORCH_GEO_URL+cpu.html
 RUN /opt/conda/envs/py/bin/pip3 install --no-cache-dir -r /tmp/requirements2.txt
-RUN conda-pack -n py -o /tmp/env.tar && \
+RUN conda clean --all && \
+    conda-pack -n py -o /tmp/env.tar && \
     mkdir /venv && cd /venv && \
     tar xf /tmp/env.tar
 
@@ -41,7 +42,8 @@ ARG TORCH_GEO_URL
 RUN /opt/conda/envs/py/bin/pip3 install --no-cache-dir $TORCH+$CUDA_VER --extra-index-url https://download.pytorch.org/whl/$CUDA_VER && \
     /opt/conda/envs/py/bin/pip3 install --no-cache-dir $TORCH_GEO -f $TORCH_GEO_URL+$CUDA_VER.html
 RUN /opt/conda/envs/py/bin/pip3 install --no-cache-dir -r /tmp/requirements2.txt
-RUN conda-pack -n py -o /tmp/env.tar && \
+RUN conda clean --all && \
+    conda-pack -n py -o /tmp/env.tar && \
     mkdir /venv && cd /venv && \
     tar xf /tmp/env.tar
 
