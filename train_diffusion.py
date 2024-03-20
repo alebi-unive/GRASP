@@ -46,7 +46,7 @@ def get_arg_parser():
     parser.add_argument('--layers', type=int, default=9)
     parser.add_argument('--use_mask', type=eval, default=True, choices=[True, False])
 
-    parser.add_argument('--wb_proj', type=str, default='grasp', help='wandb project')
+    parser.add_argument('--wb_proj', type=str, default='grasp_diffusion', help='wandb project')
     parser.add_argument('--wb_grp', type=str, default='gdl-unive', help='wandb group/entity')
 
     return parser
