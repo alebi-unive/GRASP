@@ -1,4 +1,4 @@
-pytorch-lightning==1.9.5
+pytorch-lightning==1.8.6
 pytorch-metric-learning==2.4.1
 tensorboard==2.16.2
 torchmetrics==0.11.4

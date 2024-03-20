@@ -5,7 +5,7 @@ import time
 import torch
 import networkx as nx
 import gdown
-import tarfile 
+import tarfile
 
 from models.predictor import Predictor
 from models.diffusion import SpectralDiffusion
@@ -15,8 +15,8 @@ from utils.visualization import NonMolecularVisualization
 
 if not os.path.isdir("./data/model_weights/"):
     gdown.download(id="19mC9gQCpoecBGWaL3__v69Ixu0Rny22r", output="data/model_weights.tar.gz")
-    tarfile.open('./data/model_weights.tar.gz') .extractall('./data/') 
-    
+    tarfile.open('./data/model_weights.tar.gz').extractall('./data/')
+
 diffusion_model_checkpoint = 'data/model_weights/diffusion_sbm_200.ckpt'
 predictor_model_checkpoint = 'data/model_weights/predictor_sbm_200.ckpt'
 
@@ -27,7 +27,7 @@ predictor_model_checkpoint = 'data/model_weights/predictor_planar_64_200.ckpt'
 # predictor_model_checkpoint = 'data/model_weights/predictor_proteins.ckpt'
 
 device = 'cuda'
-n_graphs = 10
+n_graphs = 100
 sampling_steps = 200
 
 model_predictor = Predictor.load_from_checkpoint(predictor_model_checkpoint, strict=False).generator
